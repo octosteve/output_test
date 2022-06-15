@@ -1,0 +1,31 @@
+name: 'GitHub Classroom Input/Output Test'
+description: 'Action Used to test a given command outputs a value'
+inputs:
+  test-name:
+    description: 'A friendly name for the test'
+    required: true
+  setup-command:
+    description: 'Optional Setup Command run before tests'
+    required: false
+    default: 'true'
+  run-command:
+    description: 'Command to be run'
+    required: true
+  input-value:
+    description: 'Argument passed as standard input to command'
+    required: true
+  expected-output:
+    description: 'Expected output'
+    required: true
+  comparison:
+    description: 'How to compare the values. Options are: exact, regex, and included. Defaults to included'
+    required: true
+    default: 'included'
+  points:
+    description: 'Points awarded if test passes'
+outputs:
+  result:
+    description: 'JSON object with results'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
